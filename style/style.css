@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+}
+
+#cardContener {
+    border: 2px solid red;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin : 0 auto;
+    width: 90%;
+}
+
+.card {
+    flex : 1 0 30%;
+    min-width: 350px;
+    margin: 10px;
+    width: 300px;
+    border: 5px solid rgb(47, 5, 238);
+}
+
+.card > img {
+    width: 150px;
+}
