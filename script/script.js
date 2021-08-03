@@ -21,38 +21,39 @@ const nameDisplay = async () => {
     <div class="card" >
     
       <img src="${user.imageUrl}" alt="photo" />
-      <h3>${user.name}</h3>
-      <p>Prix : ${user.price} €<p>
-      <p>${user.description}<p>
-      <p id="test">${user}<p>
-      <button><a href="product.html?id=${user._id}">Sélectionner</a></button>
+      <div>
+        <h3>${user.name}</h3>
+        <p>Prix : ${user.price} €<p>
+        <p>${user.description}<p>
+        <button><a href="product.html?id=${user._id}">Sélectionner</a></button>
+      </div>  
     </div>
   `
     )
-    .join(""); //enlever séparateur ","
+    .join(""); //enleve séparateur ","
 };
-console.log(fetchDescription);
+
 nameDisplay();
 
 // document.addEventListener("click", function () {
 //   document.getElementById("demo").innerHTML = "Hello World";
 // });
 
-const myHeaders = new Headers();
+// const myHeaders = new Headers();
 
-const myInit = {
-  method: "GET",
-  headers: myHeaders,
-  mode: "cors",
-  cache: "default",
-};
+// const myInit = {
+//   method: "GET",
+//   headers: myHeaders,
+//   mode: "cors",
+//   cache: "default",
+// };
 
-fetch("http://localhost:3000/api/cameras", myInit)
-  .then(function (response) {
-    return response.blob();
-  })
-  .then(function (myBlob) {
-    var objectURL = URL.createObjectURL(myBlob);
-    myImage.src = objectURL;
-  });
-console.log(myHeaders);
+// fetch("http://localhost:3000/api/cameras", myInit)
+//   .then(function (response) {
+//     return response.blob();
+//   })
+//   .then(function (myBlob) {
+//     var objectURL = URL.createObjectURL(myBlob);
+//     myImage.src = objectURL;
+//   });
+// console.log(myHeaders);

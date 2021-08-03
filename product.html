@@ -8,18 +8,32 @@
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <header></header>
-    <button><a href="index.html">Revenir en arrière</a></button>
-    <div action="" method="get">
-      <img src="" alt="" id="imgID" />
-      <div id="article__info">
-        <h2 id="article__title"></h2>
-        <p id="article__price"></p>
+    <header>
+      <a href="./index.html"
+        ><img id="LOGO" src="./IMG/LOGO.png" alt="Logo d'orinoco"
+      /></a>
+      <ul>
+        <li><a href="./cart.html">Mon panier</a></li>
+      </ul>
+    </header>
+    <div id="cardContener">
+      <div class="card" action="" method="get">
+        <img src="" alt="" id="imgID" />
+        <div id="article__info">
+          <h2 id="article__title"></h2>
+          <p id="article__price"></p>
+        </div>
+        <p id="article__description"></p>
+        <label for="lens">Option de la lentille:</label>
+        <select id="article__option" name="lens"></select>
+        <label for="article__quantity">Tu en veux combien ?</label>
+        <select name="" id="article__quantity">
+          <option value=""></option>
+        </select>
+        <p>coucou</p>
+        <button>Ajouter au panier</button>
       </div>
-      <p id="article__description"></p>
-      <p>coucou</p>
     </div>
-    <button>Ajouter au panier</button>
 
     <footer></footer>
     <script src="./script/product.js"></script>
