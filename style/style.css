@@ -1,6 +1,8 @@
 * {
   margin: 0;
   list-style-type: none;
+  font-family: "Nova Flat", cursive;
+  font-size: 16px;
 }
 a {
   color: inherit;
@@ -21,9 +23,8 @@ header {
   width: 90%;
   display: flex;
   justify-content: space-between;
-   align-items: center;
+  align-items: center;
   margin: 0 auto;
-
 }
 #cardContener {
   width: 90%;
@@ -40,10 +41,10 @@ header {
 
   border-radius: 1em;
   background-color: hsl(312, 29%, 98%);
-  box-shadow: 5px 5px 5px  hsla(0, 0%, 0%, 0.315);
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.315);
   overflow: hidden;
 }
-.card > img {
+.noFlex {
   height: 150px;
   width: 100%;
   object-fit: cover;
@@ -56,8 +57,3 @@ div {
   width: 300px;
 }
 
-#imgID {
-  height: 150px;
-  width: 100%;
-  object-fit: cover;
-}

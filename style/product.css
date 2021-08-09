@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+}
+.imgFlex {
+  height: 500px;
+  min-width: 10%;
+}
+@media only screen and (max-width: 750px) {
+  .flex {
+    flex-direction: column;
+  }
+}

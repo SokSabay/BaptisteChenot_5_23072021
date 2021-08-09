@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/product.css" />
   </head>
   <body>
     <header>
@@ -17,21 +18,48 @@
       </ul>
     </header>
     <div id="cardContener">
-      <div class="card" action="" method="get">
-        <img src="" alt="" id="imgID" />
+      <div class="card flex" action="" method="get">
+        <img class="noFlex imgFlex" src="" alt="" id="imgID" />
         <div id="article__info">
           <h2 id="article__title"></h2>
           <p id="article__price"></p>
+          <p id="article__description"></p>
+          <label for="lens">Option de la lentille:</label>
+          <select id="article__option" name="lens"></select>
+          <label for="article__quantity">Tu en veux combien ?</label>
+          <label for="quantity">Quantity (between 1 and 5):</label>
+          <!-- <input type="number" name="quantity" id="quantity" min="1" max="5" /> -->
+          <select id="quantity" 
+            class="
+              z-10
+              block
+              w-full
+              py-1
+              pl-3
+              pr-10
+              text-base text-center
+              border border-indigo-200
+              rounded
+              focus:outline-none focus:ring-indigo-500 focus:border-indigo-500
+              sm:text-sm
+            "
+            name="quantity"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <button id="button">Valider</button>
         </div>
-        <p id="article__description"></p>
-        <label for="lens">Option de la lentille:</label>
-        <select id="article__option" name="lens"></select>
-        <label for="article__quantity">Tu en veux combien ?</label>
-        <select name="" id="article__quantity">
-          <option value=""></option>
-        </select>
-        <p>coucou</p>
-        <button>Ajouter au panier</button>
       </div>
     </div>
 

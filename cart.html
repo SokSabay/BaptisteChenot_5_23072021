@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/table.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <a href="./index.html"
+        ><img id="LOGO" src="./IMG/LOGO.png" alt="Logo d'orinoco"
+      /></a>
+      <ul>
+        <li><a href="./cart.html">Mon panier</a></li>
+      </ul>
+    </header>
+    <!-- firstName, lastName, address, city et email -->
+    <section>
+      <h2>Produit</h2>
+      <table>
+        <!-- <caption>
+          Alien football stars
+        </caption> -->
+        <tr>
+          <th scope="col">Produit</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Total</th>
+        </tr>
+        <tr>
+          <th id="product" scope="row">APN</th>
+          <td id="quantity">0</td>
+          <td id="price">4$</td>
+          <td id="total">4$</td>
+        </tr>
+        <tr>
+          <th scope="row">TOTAL</th>
+        </tr>
+      </table>
+    </section>
+    <div id="cardContener">
+      <form class="card" action="" method="post" id="myForm">
+        <label for="firstName">First name:</label><br />
+        <input type="text" id="firstName" name="firstName" value="John" /><br />
+        <label for="lastName">Last name:</label><br />
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value="Doe"
+        /><br /><br />
+        <label for="address">address :</label><br />
+        <input
+          type="text"
+          id="address"
+          name="address"
+          value="Mon address"
+        /><br />
+        <label for="city">city:</label><br />
+        <input type="text" id="city" name="city" value="Chaville" /><br /><br />
+        <label for="email">email:</label><br />
+        <input
+          type="text"
+          id="email"
+          name="email"
+          value="email@mail.com"
+        /><br /><br />
+        <!-- <input type="submit" value="Submit" /> -->
+        <button type="submit">coucou</button>
+      </form>
+    </div>
+    <script src="./script/cart.js"></script>
+  </body>
+</html>

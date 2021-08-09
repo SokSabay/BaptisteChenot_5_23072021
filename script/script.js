@@ -20,7 +20,7 @@ const nameDisplay = async () => {
         `
     <div class="card" >
     
-      <img src="${user.imageUrl}" alt="photo" />
+      <img class="noFlex" src="${user.imageUrl}" alt="photo" />
       <div>
         <h3>${user.name}</h3>
         <p>Prix : ${user.price} €<p>
@@ -57,3 +57,4 @@ nameDisplay();
 //     myImage.src = objectURL;
 //   });
 // console.log(myHeaders);
+

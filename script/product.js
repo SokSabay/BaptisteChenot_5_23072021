@@ -1,8 +1,8 @@
+let cardObject = {};
 (async function () {
   const articleId = getArticleId();
   console.log(articleId);
   const article = await getArticle(articleId);
-  console.log(article);
   hydrateArticle(article);
 })();
 
@@ -19,7 +19,6 @@ function getArticle(articleId) {
     })
     .then(function (articles) {
       articleOption = articles;
-      console.log(articleOption);
       return articles;
     });
 }
@@ -32,10 +31,15 @@ const hydrateArticle = async (article) => {
   document.getElementById("article__description").textContent =
     article.description;
   document.getElementById("imgID").src = article.imageUrl;
-  console.log(article.lenses);
 
+  cardObject = {
+    name: article.name,
+    price: article.price,
+  };
+console.log(cardObject);
   const select = document.getElementById("article__option");
   //https://electrictoolbox.com/javascript-add-options-html-select/
+  //boucle for pour récupérer les options des lentilles
   for (i in article.lenses) {
     select[select.length] = new Option(
       article.lenses[i],
@@ -56,17 +60,88 @@ const hydrateArticle = async (article) => {
 
   // console.log(newOption);
 };
+// myFunction = (selTag) => {
+//   selTag.options[selTag.selectedIndex].text;
+//   cardObject.add(document.getElementById("article__title").text);
+// };
+
+document.getElementById("button").addEventListener("click", () => {
+  cardObject.option = document.getElementById("article__option").value;
+  cardObject.quantity = +document.getElementById("quantity").value;
+
+  localStorage.cart = JSON.stringify(cardObject);
+  window.location.href = "cart.html";
+});
 
 // const articleDisplay = async () => {
-//   await fetchDescription();
+//     await fetchDescription();
 
-//   document.getElementById("article__option").innerHTML = articleOption
-//     .map(
-//       (option) =>
-//         `
-//         <option value="${option.lenses}">${option.lenses}</option>
-//       `
-//     )
-//     .join(""); //enlever séparateur ","
+//     document.getElementById("article__option").innerHTML = articleOption
+//       .map(
+//           (option) =>
+//             `
+//             <option value="${option.lenses}">${option.lenses}</option>
+//           `
+//         )
+//         .join(""); //enlever séparateur ","
+//     };
+
+//     articleDisplay();
+//   };
+// const myHeaders = new Headers();
+
+// const init = {
+//   method: "POST",
+//   header: {
+//     "Content-type": "application/json",
+//   },
+//   body: JSON.stringify({
+//   pseudo: "caca",
+//   message: "caca",
+// }),
+//   mode:"cors",
+//   credentials: "same-origin",
 // };
-// articleDisplay();
+
+// console.log(myHeaders);
+//  main.js
+
+// POST request using fetch()
+
+//   fetch("http://localhost:3000/api/cameras/", {
+//   // Adding method type
+//   method: "POST",
+
+//   // Adding body or contents to send
+//   body: JSON.stringify({
+//     title: "foo",
+//     body: "bar",
+//     userId: 1,
+//   }),
+
+//   // Adding headers to the request
+//   headers: {
+//     "Content-type": "application/json; charset=UTF-8",
+//   },
+// })
+//   // Converting to JSON
+//   .then((response) => response.json())
+
+//   // Displaying results to console
+//   .then((json) => console.log(json));
+// });
+
+// (async () => {
+//   const rawResponse = await fetch("http://localhost:3000/api/cameras/order", {
+//     method: "POST",
+//     headers: {
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ a: 1, b: "Textual content" }),
+//   });
+
+//   const content = await rawResponse.json();
+
+//   console.log(content);
+// })();
