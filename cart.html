@@ -43,25 +43,25 @@
     </section>
     <div id="cardContener">
       <form class="card" action="" method="post" id="myForm">
-        <label for="firstName">First name:</label><br />
+        <label id="firstName" for="firstName">First name:</label><br />
         <input type="text" id="firstName" name="firstName" value="John" /><br />
-        <label for="lastName">Last name:</label><br />
+        <label id="lastName"for="lastName">Last name:</label><br />
         <input
           type="text"
           id="lastName"
           name="lastName"
           value="Doe"
         /><br /><br />
-        <label for="address">address :</label><br />
+        <label id="address" for="address">address :</label><br />
         <input
           type="text"
           id="address"
           name="address"
           value="Mon address"
         /><br />
-        <label for="city">city:</label><br />
+        <label id="city" for="city">city:</label><br />
         <input type="text" id="city" name="city" value="Chaville" /><br /><br />
-        <label for="email">email:</label><br />
+        <label id="email" for="email">email:</label><br />
         <input
           type="text"
           id="email"
@@ -69,9 +69,11 @@
           value="email@mail.com"
         /><br /><br />
         <!-- <input type="submit" value="Submit" /> -->
-        <button type="submit">coucou</button>
+        <button type="submit"></button>
       </form>
     </div>
+    <button id="button">Valider</button>
+        <script src="./script/getFetch.js"></script>
     <script src="./script/cart.js"></script>
   </body>
 </html>

@@ -1,6 +1,8 @@
-let cardObject = {};
+var cardObject = new Array();
+var articleId = 0;
+
 (async function () {
-  const articleId = getArticleId();
+  this.articleId = getArticleId();
   console.log(articleId);
   const article = await getArticle(articleId);
   hydrateArticle(article);
@@ -32,11 +34,11 @@ const hydrateArticle = async (article) => {
     article.description;
   document.getElementById("imgID").src = article.imageUrl;
 
-  cardObject = {
-    name: article.name,
-    price: article.price,
-  };
-console.log(cardObject);
+  // cardObject = {
+  //   name: article.name,
+  //   price: article.price,
+  // };
+  // console.log(cardObject);
   const select = document.getElementById("article__option");
   //https://electrictoolbox.com/javascript-add-options-html-select/
   //boucle for pour récupérer les options des lentilles
@@ -64,14 +66,40 @@ console.log(cardObject);
 //   selTag.options[selTag.selectedIndex].text;
 //   cardObject.add(document.getElementById("article__title").text);
 // };
+const nameDisplay = async () => {
+  await fetchDescription();
+};
+nameDisplay();
 
-document.getElementById("button").addEventListener("click", () => {
-  cardObject.option = document.getElementById("article__option").value;
-  cardObject.quantity = +document.getElementById("quantity").value;
 
-  localStorage.cart = JSON.stringify(cardObject);
-  window.location.href = "cart.html";
-});
+
+
+function bouton() {
+let test = [];
+cardObject.push(getArticle(articleId));
+this.test = cardObject;
+console.log(cardObject);
+localStorage.setItem('supercart', this.cardObject.Promise);
+// localStorage.cart = JSON.stringify(cardObject);
+// console.log(localStorage.getItem("cart"));  
+}
+
+
+
+// document.getElementById("button").addEventListener("click", () => {
+//   nameDisplay();
+
+//   // localStorage.test = JSON.stringify(descriptionData);
+//   // cardObject.option = document.getElementById("article__option").value;
+//   // cardObject.quantity = +document.getElementById("quantity").value;
+  
+
+//   cardObject.push(getArticle(articleId));
+//   console.log(cardObject);
+//   localStorage.cart = JSON.stringify(cardObject);
+
+//   // window.location.href = "cart.html";
+// });
 
 // const articleDisplay = async () => {
 //     await fetchDescription();

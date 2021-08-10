@@ -57,3 +57,12 @@ div {
   width: 300px;
 }
 
+.box {
+  display: block;
+    transition-duration: 0.4s;
+}
+
+.box:hover {
+  transition-duration: 0.4s;
+  transform: scale(1.05);
+}

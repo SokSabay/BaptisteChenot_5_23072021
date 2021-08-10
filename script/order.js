@@ -1,4 +1,4 @@
-// // const caca = async () => {
+// // const test = async () => {
 // //   await fetch("http://localhost:3000/api/cameras/order", {
 // //     method: "POST",
 // //     headers: { "Content-Type": "application/json" },
@@ -10,7 +10,7 @@
 // //     .then((res) => res.json())
 // //     .then(console.log);
 // // };
-// // caca();
+// // test();
 
 // const button = document.querySelector("button");
 
@@ -47,23 +47,15 @@
 //       console.error(error);
 //     });
 // });
-let data = {
-  contact: {
-    firstName: new URL(window.location.href).searchParams.get("prenom"),
-    lastName: new URL(window.location.href).searchParams.get("nom"),
-    address: new URL(window.location.href).searchParams.get("adresse"),
-    city: new URL(window.location.href).searchParams.get("ville"),
-    email: new URL(window.location.href).searchParams.get("email"),
-  },
-  products: ids,
-};
-console.log(data);
+// let data = {
+//   contact: {
+//     firstName: new URL(window.location.href).searchParams.get("prenom"),
+//     lastName: new URL(window.location.href).searchParams.get("nom"),
+//     address: new URL(window.location.href).searchParams.get("adresse"),
+//     city: new URL(window.location.href).searchParams.get("ville"),
+//     email: new URL(window.location.href).searchParams.get("email"),
+//   },
+//   products: ids,
+// };
+// console.log(data);
 
-// if (window.fetch) {
-//   const orderRequest = fetch("http://localhost:3000/api/teddies/order", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
