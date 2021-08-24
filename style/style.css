@@ -1,7 +1,7 @@
 * {
   margin: 0;
   list-style-type: none;
-  font-family: "Nova Flat", cursive;
+font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
 a {
@@ -65,4 +65,8 @@ div {
 .box:hover {
   transition-duration: 0.4s;
   transform: scale(1.05);
+}
+.center {
+     margin: 0 auto;
+   
 }

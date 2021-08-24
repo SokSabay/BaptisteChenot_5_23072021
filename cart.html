@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/table.css" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Orinoco | Mon panier</title>
   </head>
   <body>
     <header>
@@ -18,62 +21,55 @@
       </ul>
     </header>
     <!-- firstName, lastName, address, city et email -->
-    <section>
-      <h2>Produit</h2>
-      <table>
-        <!-- <caption>
+
+    <h2>Produit</h2>
+    <table id="myTable" class="center">
+      <!-- <caption>
           Alien football stars
         </caption> -->
-        <tr>
-          <th scope="col">Produit</th>
-          <th scope="col">Quantité</th>
-          <th scope="col">Prix</th>
-          <th scope="col">Total</th>
-        </tr>
-        <tr>
-          <th id="product" scope="row">APN</th>
-          <td id="quantity">0</td>
-          <td id="price">4$</td>
-          <td id="total">4$</td>
-        </tr>
-        <tr>
-          <th scope="row">TOTAL</th>
-        </tr>
-      </table>
-    </section>
-    <div id="cardContener">
-      <form class="card" action="" method="post" id="myForm">
-        <label id="firstName" for="firstName">First name:</label><br />
-        <input type="text" id="firstName" name="firstName" value="John" /><br />
-        <label id="lastName"for="lastName">Last name:</label><br />
+      <tr>
+        <th scope="col">Produit</th>
+        <th scope="col">Option</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Total</th>
+      </tr>
+      <tr>
+        <th scope="row">TOTAL</th>
+        <th id="total" scope="row">TOTAL</th>
+      </tr>
+    </table>
+    <div class="center">
+
+      <form class="center" action="" method="GET" id="myForm">
+        <label  for="firstName">Prénom :</label><br />
+        <input type="text" id="firstName" name="firstName" placeholder="John" required/><br />
+        <label  for="lastName">Nom :</label><br />
         <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value="Doe"
+        type="text"
+        id="lastName"
+        name="lastName"
+        placeholder="Smith"
         /><br /><br />
-        <label id="address" for="address">address :</label><br />
+        <label  for="address">Adresse :</label><br />
         <input
-          type="text"
-          id="address"
-          name="address"
-          value="Mon address"
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Mon address"
         /><br />
-        <label id="city" for="city">city:</label><br />
-        <input type="text" id="city" name="city" value="Chaville" /><br /><br />
-        <label id="email" for="email">email:</label><br />
-        <input
-          type="text"
-          id="email"
-          name="email"
-          value="email@mail.com"
-        /><br /><br />
+        <label  for="city">Ville :</label><br />
+        <input type="text" id="city" name="city" placeholder="Chaville" /><br /><br />
+        <label  for="email">email :</label><br />
+        <input type="email" name="email" id="email" placeholder="email" required>
+        <br /><br />
         <!-- <input type="submit" value="Submit" /> -->
-        <button type="submit"></button>
+        <button type="submit">Valider</button>
       </form>
+
     </div>
+
     <button id="button">Valider</button>
-        <script src="./script/getFetch.js"></script>
+    <script src="./script/getFetch.js"></script>
     <script src="./script/cart.js"></script>
   </body>
 </html>

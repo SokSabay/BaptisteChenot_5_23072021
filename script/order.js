@@ -1,3 +1,9 @@
+function getArticleId() {
+  return new URL(location.href).searchParams.get("id");
+}
+document.getElementById("UUID").textContent = getArticleId()
+  
+;
 // // const test = async () => {
 // //   await fetch("http://localhost:3000/api/cameras/order", {
 // //     method: "POST",
@@ -58,4 +64,3 @@
 //   products: ids,
 // };
 // console.log(data);
-
