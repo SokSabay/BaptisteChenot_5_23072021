@@ -1,55 +1,45 @@
 let cardObject = new Array();
 var articleId = 0;
 
-(async function () {
-  articleId = getArticleId();
-  console.log(articleId);
-  const article = await getArticle(articleId);
-  hydrateArticle(article);
-})();
-
-// Récupere l'id contenu dans le lien
-function getArticleId() {
+// retourne l'id contenu dans le lien
+const getArticleId = () => {
   return new URL(location.href).searchParams.get("id");
-}
+};
 
 // Récupere l'API par rapport à son ID
-function getArticle(articleId) {
-  return fetch(`http://localhost:3000/api/cameras/${articleId}`)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (articles) {
-      articleOption = articles;
-      return articles;
-    });
-}
+
+const getArticle = async () => {
+  await fetch(`http://localhost:3000/api/cameras/${getArticleId()}`)
+    .then((res) => res.json())
+    .then((data) => (articleOption = data));
+};
 
 // Afficher les informations de l'article
-const hydrateArticle = async (article) => {
-  await article;
-  document.getElementById("article__title").textContent = article.name;
+const hydrateArticle = async () => {
+  await getArticle();
+
+  document.getElementById("article__title").textContent = articleOption.name;
   document.getElementById("article__price").textContent = convertPrice(
-    article.price
+    articleOption.price
   );
   document.getElementById("article__description").textContent =
-    article.description;
-  document.getElementById("imgID").src = article.imageUrl;
+    articleOption.description;
+  document.getElementById("imgID").src = articleOption.imageUrl;
 
-  cardObject = article;
+  cardObject = articleOption;
 
   const select = document.getElementById("article__option");
   //https://electrictoolbox.com/javascript-add-options-html-select/
   //boucle for pour récupérer les options des lentilles
-  for (i in article.lenses) {
+  for (i in articleOption.lenses) {
     select[select.length] = new Option(
-      article.lenses[i],
-      article.lenses[i],
+      articleOption.lenses[i],
+      articleOption.lenses[i],
       i++
     );
   }
 };
-
+hydrateArticle();
 
 document.getElementById("buttonAdd").addEventListener("click", () => {
   stockage();

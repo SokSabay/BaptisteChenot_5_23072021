@@ -1,5 +1,5 @@
 // focntion pour mettre la devise en euro
-function convertPrice(productPrice) {
+const convertPrice = (productPrice) => {
   let price = `${productPrice}`;
   price = Intl.NumberFormat("fr-FR", {
     style: "currency",
@@ -9,20 +9,20 @@ function convertPrice(productPrice) {
   return price;
 }
 
-var count = 1;
-var countEl = document.getElementById("count");
-function plus() {
+let count = 1;
+let countEl = document.getElementById("count");
+const plus = () => {
   count++;
   countEl.value = count;
 }
-function minus() {
+const minus = () => {
   if (count > 1) {
     count--;
     countEl.value = count;
   }
 }
 
-function stockage() {
+const stockage = () => {
   let articleChoice = {
     nomProduit: cardObject.name,
     idProduit: cardObject._id,
