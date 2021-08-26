@@ -1,12 +1,13 @@
 //Création d'un tableau pour contenir les infos de l'API
 let descriptionData = [];
+
 const fetchDescription = async () => {
   await fetch("http://localhost:3000/api/cameras")
     .then((res) => res.json())
     .then((data) => (descriptionData = data));
 };
 
-const myImage = document.querySelector(".img");
+// const myImage = document.querySelector(".img");
 //Pour aller chercher les infos de l'API et les mettres dans le tableau
 
 //Fonction pour écrire les infos dans le code html

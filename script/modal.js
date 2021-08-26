@@ -22,3 +22,9 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+document.getElementById("panier").addEventListener("click", () => {
+  window.location.href = "cart.html";
+});
+document.getElementById("achats").addEventListener("click", () => {
+  window.location.href = "index.html";
+});

@@ -1,3 +1,4 @@
+// focntion pour mettre la devise en euro
 function convertPrice(productPrice) {
   let price = `${productPrice}`;
   price = Intl.NumberFormat("fr-FR", {
@@ -29,7 +30,6 @@ function stockage() {
     quantity: +document.getElementById("count").value,
     price: cardObject.price,
   };
-  console.log(cardObject.name);
 
   let produitLocalstorage = JSON.parse(localStorage.getItem("produit"));
   let doublon = true;
@@ -37,9 +37,7 @@ function stockage() {
   if (produitLocalstorage === null) {
     produitLocalstorage = [];
     produitLocalstorage.push(articleChoice);
-
     localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
-    console.log("no tasks");
   } else {
     produitLocalstorage.every((element, index) => {
       if (element.nomProduit == cardObject.name) {
@@ -48,25 +46,14 @@ function stockage() {
         doublon = true;
         return false;
       } else {
-        console.log("combien");
         doublon = false;
         return true;
       }
     });
   }
   if (doublon) {
-    console.log(doublon);
   } else {
     produitLocalstorage.push(articleChoice);
     localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
   }
-  // if (produitLocalstorage) {
-  //   // produitLocalstorage.push(articleChoice);
-  //   // localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
-  // } else {
-  //   produitLocalstorage = [];
-  //   produitLocalstorage.push(articleChoice);
-
-  //   localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
-  // }
 }

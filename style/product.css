@@ -1,14 +1,27 @@
 .flex {
   display: flex;
 }
+#article__description{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#input_div {
+  margin-top: 1rem;
+}
 .imgFlex {
-  height: 500px;
+  height: 300px;
+
   min-width: 10%;
 }
 @media only screen and (max-width: 750px) {
   .flex {
     flex-direction: column;
   }
+  .imgFlex {
+  height: 200px;
+
+  min-width: 10%;
+}
 }
 
 

@@ -1,5 +1,6 @@
 let cardObject = new Array();
 var articleId = 0;
+
 (async function () {
   articleId = getArticleId();
   console.log(articleId);
@@ -12,7 +13,7 @@ function getArticleId() {
   return new URL(location.href).searchParams.get("id");
 }
 
-// Récupere l'API
+// Récupere l'API par rapport à son ID
 function getArticle(articleId) {
   return fetch(`http://localhost:3000/api/cameras/${articleId}`)
     .then(function (res) {
@@ -52,13 +53,4 @@ const hydrateArticle = async (article) => {
 
 document.getElementById("buttonAdd").addEventListener("click", () => {
   stockage();
-
-  // window.location.href = "cart.html";
-});
-
-document.getElementById("panier").addEventListener("click", () => {
-  window.location.href = "cart.html";
-});
-document.getElementById("achats").addEventListener("click", () => {
-  window.location.href = "index.html";
 });
