@@ -1,22 +1,22 @@
 let products = [];
-let totalPrice = 0;
-let totalQuantity = 0;
 let j = 1;
 
 // Création d'un id unique
-function uuidv4() {
+const uuidv4 = () => {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
+    let r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
-}
+};
 
 // récupération des données dans le localstorage
+
+console.log(myCart());
 const product = JSON.parse(localStorage.getItem("produit"));
 
 // Géneration du tableau
-function addTable(i) {
+const addTable = (i) => {
   let table = document.getElementById("myTable");
   let row = table.insertRow(j++);
   let cell1 = row.insertCell(0);
@@ -24,11 +24,11 @@ function addTable(i) {
   let cell3 = row.insertCell(2);
   let cell4 = row.insertCell(3);
 
-  cell1.innerHTML = product[i].nomProduit;
-  cell2.innerHTML = product[i].option;
-  cell3.innerHTML = product[i].quantity;
-  cell4.innerHTML = convertPrice(product[i].price * product[i].quantity);
-}
+  cell1.innerHTML = myCart()[i].nomProduit;
+  cell2.innerHTML = myCart()[i].option;
+  cell3.innerHTML = myCart()[i].quantity;
+  cell4.innerHTML = convertPrice(myCart()[i].price * myCart()[i].quantity);
+};
 
 // Vérification si le panier est vide et calcule du prix totale et de la quantité
 if (product == null) {
@@ -37,14 +37,12 @@ if (product == null) {
 } else {
   for (i in product) {
     addTable(i);
-    totalPrice += product[i].price * product[i].quantity;
-    totalQuantity += product[i].quantity;
     products.push(product[i].idProduit);
     i++;
   }
 }
-document.getElementById("total").innerHTML = convertPrice(totalPrice);
-document.getElementById("totalQuantity").innerHTML = totalQuantity;
+document.getElementById("total").innerHTML = convertPrice(totalPrice());
+document.getElementById("totalQuantity").innerHTML = totalQuantity();
 
 document.getElementById("clear").addEventListener("click", () => {
   if (confirm("Voulez-vous vraiment vider votre panier ?")) {
@@ -62,9 +60,8 @@ const regexCity =
   /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
 const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
 const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
-const checkBox = document.getElementById("invalidCheck2");
-
-button.addEventListener("click", () => {
+// const checkBox = document.getElementById("invalidCheck2");
+document.getElementById("button").addEventListener("click", () => {
   let contact = {
     firstName: document.getElementById("firstName").value,
     lastName: document.getElementById("lastName").value,
@@ -90,6 +87,7 @@ button.addEventListener("click", () => {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("order", JSON.stringify(data));
+        console.log("CACA");
         window.open("order.html" + "?id=" + uuidv4(), "_self");
       })
       .catch((erreur) => console.log("erreur : " + erreur));

@@ -24,7 +24,7 @@ const nameDisplay = async () => {
       <img class="noFlex" src="${user.imageUrl}" alt="photo" />
       <div>
         <h3>${user.name}</h3>
-        <p>Prix : ${user.price} €<p>
+        <p>Prix : ${convertPrice(user.price)}<p>
         <p>${user.description}<p>
       </div>  
     </a>
