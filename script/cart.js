@@ -1,4 +1,4 @@
-let products = [];
+let products = new Array();
 let j = 1;
 
 // Création d'un id unique
@@ -49,18 +49,16 @@ document.getElementById("clear").addEventListener("click", () => {
     localStorage.clear();
     window.location.href = "index.html";
   }
-  // localStorage.clear();
 });
 
-//validation du formulaire et envoie en POST
-// const order = document.getElementById("order");
-// console.log(order);
+// validation du formulaire et envoie en POST
+
 const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
 const regexCity =
   /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
 const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
 const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
-// const checkBox = document.getElementById("invalidCheck2");
+
 document.getElementById("button").addEventListener("click", () => {
   let contact = {
     firstName: document.getElementById("firstName").value,
@@ -69,6 +67,7 @@ document.getElementById("button").addEventListener("click", () => {
     city: document.getElementById("city").value,
     email: document.getElementById("email").value,
   };
+
   if (
     (regexMail.test(contact.email) == true) &
     (regexName.test(contact.firstName) == true) &
@@ -85,12 +84,16 @@ document.getElementById("button").addEventListener("click", () => {
       body: JSON.stringify({ contact, products }),
     })
       .then((response) => response.json())
-      .then((data) => {
-        localStorage.setItem("order", JSON.stringify(data));
-        console.log("CACA");
-        window.open("order.html" + "?id=" + uuidv4(), "_self");
+      //then les donnée provenant de response (response n'est qu'une variable) en JSON...
+      .then((req) => {
+        console.log("Success:", req);
+        // window.open("order.html" + "?id=" + uuidv4(), "_self");
       })
-      .catch((erreur) => console.log("erreur : " + erreur));
+      //Sinon génération de l'erreur sur le console.
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   } else {
+    window.alert("Merci de respecter le formulaire");
   }
 });
