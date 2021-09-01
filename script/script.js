@@ -14,7 +14,6 @@ const fetchDescription = async () => {
 //Fonction pour écrire les infos dans le code html
 const nameDisplay = async () => {
   await fetchDescription();
-  console.log(descriptionData);
   document.getElementById("cardContener").innerHTML = descriptionData
     .map(
       (user) =>

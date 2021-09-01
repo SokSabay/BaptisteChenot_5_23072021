@@ -24,79 +24,82 @@
       </ul>
     </header>
     <!-- firstName, lastName, address, city et email -->
-    <div class="center">
-      <h2>Produit</h2>
-      <table id="myTable">
-        <tr>
-          <th scope="col">Produit</th>
-          <th scope="col">Option</th>
-          <th scope="col">Quantité</th>
-          <th scope="col">Total</th>
-        </tr>
-        <tr>
-          <th scope="row">TOTAL</th>
-          <th scope="row"></th>
-          <th id="totalQuantity" scope="row">TOTAL</th>
-          <th id="total" scope="row">val</th>
-        </tr>
-      </table>
-      <button id="clear">Vider mon panier</button>
-    </div>
+    <main>
+      <section class="center">
+        <table id="myTable">
+          <tr>
+            <th scope="col">Produit</th>
+            <th scope="col">Option</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Total</th>
+          </tr>
+          <tr>
+            <th scope="row">TOTAL</th>
+            <th scope="row"></th>
+            <th id="totalQuantity" scope="row">TOTAL</th>
+            <th id="total" scope="row">val</th>
+          </tr>
+        </table>
+        <button id="clear">Vider mon panier</button>
+      </section>
 
-    <div class="center">
-      <form action="" class="center" id="myForm">
-        <label for="firstName">Prénom :</label><br />
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          placeholder="John"
-          pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$"
-          required
-        /><br />
-        <label for="lastName">Nom :</label><br />
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          placeholder="Smith"
-          pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$"
-          required
-        /><br /><br />
-        <label for="address">Adresse :</label><br />
-        <input
-          type="text"
-          id="address"
-          name="address"
-          placeholder="Mon address"
-          pattern="^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$"
-          required
-        /><br />
-        <label for="city">Ville :</label><br />
-        <input
-          type="text"
-          id="city"
-          name="city"
-          placeholder="Chaville"
-          pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$"
-          required
-        /><br /><br />
-        <label for="email">email :</label><br />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="email"
-          pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$"
-          required
-        />
-        <br /><br />
-        <!-- <button type="button" id="validate">submit</button> -->
-      </form>
-      <button id="button">TEST</button>
-    </div>
-
-    <script src="./script/getFetch.js"></script>
+      <section class="center">
+        <form class="center" id="myForm">
+          <label for="firstName">Prénom :</label><br />
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="John"
+            pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$"
+            style="text-transform: capitalize;"
+            required
+          /><br />
+          <label for="lastName">Nom :</label><br />
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Smith"
+            pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$"
+            style="text-transform: capitalize;"
+            required
+          /><br /><br />
+          <label for="address">Adresse :</label><br />
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Mon address"
+            pattern="^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$"
+            required
+          /><br />
+          <label for="city">Ville :</label><br />
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Chaville"
+            pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$"
+            style="text-transform: capitalize;"
+            required
+          /><br /><br />
+          <label for="email">email :</label><br />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="email"
+            pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$"
+            required
+          />
+          <br /><br />
+          <!-- <button type="button" id="validate">submit</button> -->
+          <button id="button">VALIDER</button>
+        </form>
+      </section>
+    </main>
+    <script src="./script/function.js"></script>
     <script src="./script/cart.js"></script>
   </body>
 </html>

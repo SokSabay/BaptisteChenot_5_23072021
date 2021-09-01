@@ -1,4 +1,4 @@
-// focntion pour mettre la devise en euro
+// fonction pour passer de centime à euro avec la devise 
 const convertPrice = (productPrice) => {
   let price = `${productPrice}`;
   price = Intl.NumberFormat("fr-FR", {
@@ -12,6 +12,7 @@ const convertPrice = (productPrice) => {
 const checkAvailability = (test, stockage) => {
   return test.some((element) => stockage.name === element.nomProduit);
 };
+// retourne le panier
 const myCart = () => {
   return JSON.parse(localStorage.getItem("produit"));
 };
@@ -34,7 +35,7 @@ const totalQuantity = () => {
 
 let count = 1;
 let countEl = document.getElementById("count");
-
+// permet d'incrémenter ou de décrémenter
 const plus = () => {
   count++;
   countEl.value = count;
@@ -45,7 +46,7 @@ const minus = () => {
     countEl.value = count;
   }
 };
-
+// permet d'ajouter au panier le produit et la quantité
 const stockage = () => {
   let articleChoice = {
     nomProduit: cardObject.name,
@@ -65,13 +66,10 @@ const stockage = () => {
   if (checkAvailability(myCart(), cardObject)) {
     const index = (element) => cardObject.name === element.nomProduit;
     index(myCart());
-    console.log(myCart().findIndex(index));
-
     produitLocalstorage[myCart().findIndex(index)].quantity +=
       articleChoice.quantity;
     localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
   } else {
-    console.log("caca");
     produitLocalstorage.push(articleChoice);
     localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
   }

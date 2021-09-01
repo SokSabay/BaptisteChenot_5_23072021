@@ -16,22 +16,21 @@
     <title>Orinoco | Produit</title>
   </head>
   <body>
-    <header>
-      <a href="./index.html"
-        ><img id="LOGO" src="./IMG/LOGO.png" alt="Logo d'orinoco"
-      /></a>
-
-      <ul>
-        <li><a href="./cart.html">Mon panier</a></li>
-      </ul>
-    </header>
     <div id="orderStyle">
-      <h2>Merci <span></span> d'avoir commander chez Orinoco</h2>
+      <h2>Votre commande Orinoco</h2>
+      <p>Bonjour <span id="firstName"></span>,</p>
+      <p>
+        Merci d’avoir fait vos achats chez Orinoco.
+      </p>
+
+      <p>Le montant total de votre commande est de :</p>
+      <p><span id="priceTotal"></span></p>
+
       <p>Identifiant de commande :</p>
-      <p id="UUID"></p>
+      <span id="UUID"></span>
     </div>
     <button id="over">Retour à la boutique</button>
-    <script src="./script/getFetch.js"></script>
+    <script src="./script/function.js"></script>
     <script src="./script/order.js"></script>
   </body>
 </html>

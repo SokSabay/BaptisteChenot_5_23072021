@@ -12,7 +12,6 @@ const uuidv4 = () => {
 
 // récupération des données dans le localstorage
 
-console.log(myCart());
 const product = JSON.parse(localStorage.getItem("produit"));
 
 // Géneration du tableau
@@ -59,7 +58,7 @@ const regexCity =
 const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
 const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
 
-document.getElementById("button").addEventListener("click", () => {
+document.getElementById("button").addEventListener("click", (e) => {
   let contact = {
     firstName: document.getElementById("firstName").value,
     lastName: document.getElementById("lastName").value,
@@ -75,7 +74,8 @@ document.getElementById("button").addEventListener("click", () => {
     (regexCity.test(contact.city) == true) &
     (regexAddress.test(contact.address) == true)
     // (checkBox.checked == true)
-  ) {
+    ) {
+    e.preventDefault();
     fetch("http://localhost:3000/api/cameras/order", {
       method: "POST",
       headers: {
@@ -86,14 +86,12 @@ document.getElementById("button").addEventListener("click", () => {
       .then((response) => response.json())
       //then les donnée provenant de response (response n'est qu'une variable) en JSON...
       .then((req) => {
-        console.log("Success:", req);
-        // window.open("order.html" + "?id=" + uuidv4(), "_self");
+        localStorage.setItem("order", JSON.stringify(req));
+        window.open("order.html" + "?id=" + uuidv4(), "_self");
       })
       //Sinon génération de l'erreur sur le console.
       .catch((error) => {
         console.error("Error:", error);
       });
-  } else {
-    window.alert("Merci de respecter le formulaire");
-  }
+  } 
 });
