@@ -25,7 +25,7 @@ const hydrateArticle = async () => {
   document.getElementById("article__description").textContent =
     articleOption.description;
   document.getElementById("imgID").src = articleOption.imageUrl;
-
+  document.title = `Orinoco | ${articleOption.name}`;
   cardObject = articleOption;
 
   const select = document.getElementById("article__option");

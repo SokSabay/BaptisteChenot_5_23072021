@@ -1,4 +1,4 @@
-// fonction pour passer de centime à euro avec la devise 
+// fonction pour passer de centime à euro avec la devise
 const convertPrice = (productPrice) => {
   let price = `${productPrice}`;
   price = Intl.NumberFormat("fr-FR", {
@@ -48,6 +48,7 @@ const minus = () => {
 };
 // permet d'ajouter au panier le produit et la quantité
 const stockage = () => {
+  console.log("caca");
   let articleChoice = {
     nomProduit: cardObject.name,
     idProduit: cardObject._id,
@@ -60,7 +61,8 @@ const stockage = () => {
 
   if (produitLocalstorage === null) {
     produitLocalstorage = [];
-    produitLocalstorage.push(articleChoice);
+
+ 
     localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
   }
   if (checkAvailability(myCart(), cardObject)) {
@@ -84,7 +86,7 @@ const functionPost = (e) => {
     email: document.getElementById("email").value,
   };
 
-  // Permet d'envoyer au back end les informations de l'utilisateur 
+  // Permet d'envoyer au back end les informations de l'utilisateur
   if (
     (regexMail.test(contact.email) == true) &
     (regexName.test(contact.firstName) == true) &
