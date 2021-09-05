@@ -74,3 +74,42 @@ const stockage = () => {
     localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
   }
 };
+
+const functionPost = (e) => {
+  let contact = {
+    firstName: document.getElementById("firstName").value,
+    lastName: document.getElementById("lastName").value,
+    address: document.getElementById("address").value,
+    city: document.getElementById("city").value,
+    email: document.getElementById("email").value,
+  };
+
+  // Permet d'envoyer au back end les informations de l'utilisateur 
+  if (
+    (regexMail.test(contact.email) == true) &
+    (regexName.test(contact.firstName) == true) &
+    (regexName.test(contact.lastName) == true) &
+    (regexCity.test(contact.city) == true) &
+    (regexAddress.test(contact.address) == true)
+    // (checkBox.checked == true)
+  ) {
+    e.preventDefault();
+    fetch("http://localhost:3000/api/cameras/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ contact, products }),
+    })
+      .then((response) => response.json())
+      //then les donnée provenant de response (response n'est qu'une variable) en JSON...
+      .then((req) => {
+        localStorage.setItem("order", JSON.stringify(req));
+        window.open("order.html" + "?id=" + uuidv4(), "_self");
+      })
+      //Sinon génération de l'erreur sur le console.
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+};

@@ -6,7 +6,7 @@ const getArticleId = () => {
   return new URL(location.href).searchParams.get("id");
 };
 
-// Récupere l'API par rapport à son ID
+// Récupere l'API par rapport à son ID contenu dans le lien
 
 const getArticle = async () => {
   await fetch(`http://localhost:3000/api/cameras/${getArticleId()}`)
