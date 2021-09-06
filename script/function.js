@@ -48,7 +48,6 @@ const minus = () => {
 };
 // permet d'ajouter au panier le produit et la quantité
 const stockage = () => {
-  console.log("caca");
   let articleChoice = {
     nomProduit: cardObject.name,
     idProduit: cardObject._id,

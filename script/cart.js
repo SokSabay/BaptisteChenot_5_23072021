@@ -25,12 +25,14 @@ const addTable = (i) => {
 
   cell1.innerHTML = myCart()[i].nomProduit;
   cell2.innerHTML = myCart()[i].option;
-  cell3.innerHTML = myCart()[i].quantity;
+  cell3.innerHTML = `<input id="${i}" type="number" value="${
+    myCart()[i].quantity
+  }" onchange="valueUpdate(this)">`;
   cell4.innerHTML = convertPrice(myCart()[i].price * myCart()[i].quantity);
 };
 
 // Vérification si le panier est vide et calcule du prix totale et de la quantité
-if (product == null) {
+if (product == null || myCart().length === 0) {
   window.alert("Votre panier est vide");
   window.location.href = "index.html";
 } else {
@@ -40,6 +42,7 @@ if (product == null) {
     i++;
   }
 }
+
 document.getElementById("total").innerHTML = convertPrice(totalPrice());
 document.getElementById("totalQuantity").innerHTML = totalQuantity();
 
@@ -58,9 +61,31 @@ const regexCity =
 const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
 const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
 
-
-
-
 document.getElementById("button").addEventListener("click", (e) => {
-functionPost(e);
+  functionPost(e);
 });
+
+const valueUpdate = (val) => {
+  if (val.value <= 0) {
+    val.value = 1;
+    var check = confirm("Voulez-vous supprimer cet article ?");
+    if (check == true) {
+      product.splice(val.id, 1);
+      localStorage.setItem("produit", JSON.stringify(product));
+      document.location.reload();
+      if (myCart().length === 0) {
+        window.alert("Votre panier est vide !");
+        window.location.href = "index.html";
+      }
+    }
+  } else {
+    product[val.id].quantity = parseInt(val.value);
+
+    localStorage.setItem("produit", JSON.stringify(product));
+    document.getElementById("total").innerHTML = convertPrice(totalPrice());
+    document.getElementById("totalQuantity").innerHTML = totalQuantity();
+    val.parentNode.parentNode.cells[3].innerHTML = convertPrice(
+      myCart()[val.id].price * myCart()[val.id].quantity
+    );
+  }
+};
