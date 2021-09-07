@@ -11,7 +11,6 @@ const uuidv4 = () => {
 };
 
 // récupération des données dans le localstorage
-
 const product = JSON.parse(localStorage.getItem("produit"));
 
 // Géneration du tableau
@@ -31,7 +30,7 @@ const addTable = (i) => {
   cell4.innerHTML = convertPrice(myCart()[i].price * myCart()[i].quantity);
 };
 
-// Vérification si le panier est vide et calcule du prix totale et de la quantité
+// Vérification, si le panier est vide retour à la page d'accueil sinon création du tableau
 if (product == null || myCart().length === 0) {
   window.alert("Votre panier est vide");
   window.location.href = "index.html";
@@ -42,10 +41,11 @@ if (product == null || myCart().length === 0) {
     i++;
   }
 }
-
+//Affiche le prix total et le total de la quantité dans le tableau
 document.getElementById("total").innerHTML = convertPrice(totalPrice());
 document.getElementById("totalQuantity").innerHTML = totalQuantity();
 
+//Bouton pour vider le panier
 document.getElementById("clear").addEventListener("click", () => {
   if (confirm("Voulez-vous vraiment vider votre panier ?")) {
     localStorage.clear();
@@ -54,7 +54,6 @@ document.getElementById("clear").addEventListener("click", () => {
 });
 
 // validation du formulaire et envoie en POST
-
 const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
 const regexCity =
   /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
@@ -65,6 +64,8 @@ document.getElementById("button").addEventListener("click", (e) => {
   functionPost(e);
 });
 
+//Fonction pour pouvoir ajouter ou supprimer des articles dans le panier.
+//si un article arriv à 0 suppression de la ligne
 const valueUpdate = (val) => {
   if (val.value <= 0) {
     val.value = 1;
@@ -80,7 +81,6 @@ const valueUpdate = (val) => {
     }
   } else {
     product[val.id].quantity = parseInt(val.value);
-
     localStorage.setItem("produit", JSON.stringify(product));
     document.getElementById("total").innerHTML = convertPrice(totalPrice());
     document.getElementById("totalQuantity").innerHTML = totalQuantity();

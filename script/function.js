@@ -8,7 +8,7 @@ const convertPrice = (productPrice) => {
   }).format(price / 100);
   return price;
 };
-
+//Recherche un doublon
 const checkAvailability = (test, stockage) => {
   return test.some((element) => stockage.name === element.nomProduit);
 };
@@ -33,9 +33,9 @@ const totalQuantity = () => {
   return quantity;
 };
 
+// permet d'incrémenter ou de décrémenter dans la page produit
 let count = 1;
 let countEl = document.getElementById("count");
-// permet d'incrémenter ou de décrémenter
 const plus = () => {
   count++;
   countEl.value = count;
@@ -46,6 +46,7 @@ const minus = () => {
     countEl.value = count;
   }
 };
+
 // permet d'ajouter au panier le produit et la quantité
 const stockage = () => {
   let articleChoice = {
@@ -60,8 +61,6 @@ const stockage = () => {
 
   if (produitLocalstorage === null) {
     produitLocalstorage = [];
-
- 
     localStorage.setItem("produit", JSON.stringify(produitLocalstorage));
   }
   if (checkAvailability(myCart(), cardObject)) {
@@ -76,6 +75,7 @@ const stockage = () => {
   }
 };
 
+//Va chercher les informations de l'utilisateur
 const functionPost = (e) => {
   let contact = {
     firstName: document.getElementById("firstName").value,
@@ -103,12 +103,10 @@ const functionPost = (e) => {
       body: JSON.stringify({ contact, products }),
     })
       .then((response) => response.json())
-      //then les donnée provenant de response (response n'est qu'une variable) en JSON...
       .then((req) => {
         localStorage.setItem("order", JSON.stringify(req));
         window.open("order.html" + "?id=" + uuidv4(), "_self");
       })
-      //Sinon génération de l'erreur sur le console.
       .catch((error) => {
         console.error("Error:", error);
       });

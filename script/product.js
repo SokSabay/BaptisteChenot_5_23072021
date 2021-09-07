@@ -7,7 +7,6 @@ const getArticleId = () => {
 };
 
 // Récupere l'API par rapport à son ID contenu dans le lien
-
 const getArticle = async () => {
   await fetch(`http://localhost:3000/api/cameras/${getArticleId()}`)
     .then((res) => res.json())
@@ -25,6 +24,7 @@ const hydrateArticle = async () => {
   document.getElementById("article__description").textContent =
     articleOption.description;
   document.getElementById("imgID").src = articleOption.imageUrl;
+  //affiche le nom de l'article dans l'onglet de la page
   document.title = `Orinoco | ${articleOption.name}`;
   cardObject = articleOption;
 
